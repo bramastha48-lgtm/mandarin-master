@@ -1,7 +1,9 @@
-const CACHE_NAME = 'mandarin-master-v1';
+const CACHE_NAME = 'mandarin-master-v2';
 const ASSETS = [
   '/mandarin-master/',
   '/mandarin-master/index.html',
+  '/mandarin-master/icon-192.png',
+  '/mandarin-master/icon-512.png',
 ];
 
 self.addEventListener('install', (event) => {
@@ -22,6 +24,6 @@ self.addEventListener('activate', (event) => {
 
 self.addEventListener('fetch', (event) => {
   event.respondWith(
-    fetch(event.request).catch(() => caches.match(event.request))
+    caches.match(event.request).then((cached) => cached || fetch(event.request))
   );
 });
