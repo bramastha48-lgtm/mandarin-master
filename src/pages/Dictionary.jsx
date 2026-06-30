@@ -10,6 +10,7 @@ export default function Dictionary() {
   const [filterType, setFilterType] = useState('')
   const [selectedWord, setSelectedWord] = useState(null)
   const [showRadicals, setShowRadicals] = useState(false)
+  const [showAll, setShowAll] = useState(false)
 
   const hskLevels = [0, 1, 2, 3, 4, 5, 6]
   const types = [...new Set(extendedDictionary.map(d => d.type))].sort()
@@ -39,7 +40,7 @@ export default function Dictionary() {
         <input
           type="text"
           value={search}
-          onChange={e => setSearch(e.target.value)}
+          onChange={e => { setSearch(e.target.value); setShowAll(false) }}
           placeholder="Cari: karakter, pinyin, atau arti..."
           className="w-full bg-white rounded-xl px-5 py-3.5 pl-12 shadow-sm border border-gray-200 focus:border-red-400 focus:outline-none text-sm"
         />
@@ -123,8 +124,8 @@ export default function Dictionary() {
       </div>
 
       {/* Word List */}
-      <div className="space-y-2">
-        {filtered.slice(0, 60).map(word => (
+      <div className="space-y-2 pb-4">
+        {filtered.slice(0, showAll ? filtered.length : 30).map(word => (
           <div
             key={word.id}
             onClick={() => handleWordClick(word)}
@@ -155,10 +156,21 @@ export default function Dictionary() {
         ))}
       </div>
 
-      {filtered.length > 60 && (
-        <div className="text-center text-sm text-gray-500 mt-4 py-3">
-          Dan {filtered.length - 60} kata lainnya... (ketik untuk mempersempit pencarian)
-        </div>
+      {filtered.length > 30 && !showAll && (
+        <button
+          onClick={() => setShowAll(true)}
+          className="w-full bg-white rounded-xl p-4 shadow-sm mt-3 text-sm text-red-500 font-medium"
+        >
+          Tampilkan semua {filtered.length} kata ↓
+        </button>
+      )}
+      {showAll && filtered.length > 30 && (
+        <button
+          onClick={() => setShowAll(false)}
+          className="w-full bg-white rounded-xl p-4 shadow-sm mt-3 text-sm text-gray-500 font-medium"
+        >
+          Sembunyikan ↑
+        </button>
       )}
 
       {/* Word Detail Modal */}
