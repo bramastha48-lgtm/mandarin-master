@@ -1,0 +1,39 @@
+{
+  "name": "MandarinMaster - Belajar Bahasa Mandarin",
+  "short_name": "MandarinMaster",
+  "description": "Aplikasi belajar bahasa Mandarin dengan kamus, soal HSK 1-6, AI tutor, latihan menulis & audio",
+  "start_url": "/mandarin-master/",
+  "display": "standalone",
+  "background_color": "#faf7f2",
+  "theme_color": "#e74c3c",
+  "orientation": "portrait",
+  "scope": "/mandarin-master/",
+  "categories": ["education", "language"],
+  "lang": "id",
+  "icons": [
+    {
+      "src": "/mandarin-master/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/mandarin-master/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/mandarin-master/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "maskable"
+    },
+    {
+      "src": "/mandarin-master/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
+  ]
+}

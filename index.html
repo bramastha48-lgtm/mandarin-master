@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <meta name="theme-color" content="#e74c3c" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="apple-mobile-web-app-title" content="MandarinMaster" />
+    <meta name="description" content="Belajar bahasa Mandarin dengan kamus, soal HSK, AI tutor, latihan menulis & audio" />
+    <link rel="manifest" href="/mandarin-master/manifest.json" />
+    <link rel="icon" type="image/png" sizes="192x192" href="/mandarin-master/icon-192.png" />
+    <link rel="apple-touch-icon" href="/mandarin-master/icon-192.png" />
+    <title>MandarinMaster - Belajar Bahasa Mandarin</title>
+    <style>
+      /* Safe area padding */
+      body {
+        padding-top: env(safe-area-inset-top, 0px);
+      }
+    </style>
+    <script type="module" crossorigin src="/mandarin-master/assets/index-DjC6giSd.js"></script>
+    <link rel="stylesheet" crossorigin href="/mandarin-master/assets/index-Cdh5PJj5.css">
+  </head>
+  <body>
+    <div id="root"></div>
+    <script>
+      // Register service worker for PWA
+      if ('serviceWorker' in navigator) {
+        window.addEventListener('load', () => {
+          navigator.serviceWorker.register('/mandarin-master/sw.js').catch(() => {});
+        });
+      }
+    </script>
+  </body>
+</html>
